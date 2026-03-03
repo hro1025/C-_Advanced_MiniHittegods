@@ -1,0 +1,30 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniHittegods.Domain", "MiniHittegods.Domain\MiniHittegods.Domain.csproj", "{C8C47B7F-5C43-F936-D28F-42AACBD3688D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTest", "XUnitTests\XUnitTest.csproj", "{6A4CBAAE-6948-4854-AC3E-B15AE830992C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8C47B7F-5C43-F936-D28F-42AACBD3688D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8C47B7F-5C43-F936-D28F-42AACBD3688D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8C47B7F-5C43-F936-D28F-42AACBD3688D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8C47B7F-5C43-F936-D28F-42AACBD3688D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A4CBAAE-6948-4854-AC3E-B15AE830992C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A4CBAAE-6948-4854-AC3E-B15AE830992C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A4CBAAE-6948-4854-AC3E-B15AE830992C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A4CBAAE-6948-4854-AC3E-B15AE830992C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {12C1D3AA-2A4C-4156-9A46-5DA8AA67796C}
+	EndGlobalSection
+EndGlobal
