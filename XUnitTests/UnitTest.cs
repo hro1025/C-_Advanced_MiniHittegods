@@ -1,5 +1,3 @@
-using System.Security.Claims;
-using Microsoft.VisualBasic;
 using MiniHittegods.Domain.Core;
 using Xunit;
 
@@ -35,7 +33,7 @@ public class UnitTests
         var target = new FoundItem();
 
         target.Claim();
-        target.Return();
+        target.ReturnItem();
 
         var status = target.Status;
 
