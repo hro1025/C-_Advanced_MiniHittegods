@@ -96,3 +96,7 @@
 /home/roan/Documents/Kodehode oppgaver/C#_Advanced_MiniHittegods/XUnitTests/obj/Debug/net8.0/XUnitTest.pdb
 /home/roan/Documents/Kodehode oppgaver/C#_Advanced_MiniHittegods/XUnitTests/obj/Debug/net8.0/XUnitTest.genruntimeconfig.cache
 /home/roan/Documents/Kodehode oppgaver/C#_Advanced_MiniHittegods/XUnitTests/obj/Debug/net8.0/ref/XUnitTest.dll
+/home/roan/Documents/Kodehode oppgaver/C#_Advanced_MiniHittegods/XUnitTests/bin/Debug/net8.0/CoverletSourceRootsMapping_XUnitTest
+/home/roan/Documents/Kodehode oppgaver/C#_Advanced_MiniHittegods/XUnitTests/bin/Debug/net8.0/MiniHittegods.Domain.dll
+/home/roan/Documents/Kodehode oppgaver/C#_Advanced_MiniHittegods/XUnitTests/bin/Debug/net8.0/MiniHittegods.Domain.pdb
+/home/roan/Documents/Kodehode oppgaver/C#_Advanced_MiniHittegods/XUnitTests/obj/Debug/net8.0/XUnitTest.sourcelink.json
