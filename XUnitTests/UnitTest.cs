@@ -20,7 +20,7 @@ public class UnitTests
     {
         var target = new FoundItem();
 
-        target.Claim();
+        target.ClaimItem();
 
         var status = target.Status;
 
@@ -32,7 +32,7 @@ public class UnitTests
     {
         var target = new FoundItem();
 
-        target.Claim();
+        target.ClaimItem();
         target.ReturnItem();
 
         var status = target.Status;
@@ -45,7 +45,7 @@ public class UnitTests
     {
         var target = new FoundItem();
 
-        target.Delete();
+        target.DeleteItem();
 
         var status = target.Status;
 

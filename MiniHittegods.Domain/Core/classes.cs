@@ -7,20 +7,19 @@ public enum ItemStatus
     Available,
     Claimed,
     Returned,
-
     Deleted,
 }
 
 public class FoundItem : Model
 {
-    public ItemStatus Status { get; private set; }
+    public new ItemStatus Status { get; private set; }
 
     public FoundItem()
     {
         Status = ItemStatus.Available;
     }
 
-    public void Claim()
+    public void ClaimItem()
     {
         if (Status != ItemStatus.Available)
         {
@@ -40,7 +39,7 @@ public class FoundItem : Model
         Status = ItemStatus.Returned;
     }
 
-    public void Delete()
+    public void DeleteItem()
     {
         if (Status != ItemStatus.Available)
         {
