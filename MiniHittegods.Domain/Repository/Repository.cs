@@ -1,31 +1,33 @@
+using System.Linq;
+using Microsoft.VisualBasic;
 using MiniHittegods.Domain.Core;
 using MiniHittegods.Domain.Interfaces;
+using MiniHittegods.Domain.Models;
 
 namespace MiniHittegods.Domain.Repository;
 
 public class Repository<T> : IRepository<T>
-    where T : class
 {
     private readonly List<T> items = new List<T>();
 
     public void Add(T item)
     {
-        throw new NotImplementedException();
+        items.Add(item);
     }
 
-    public void Delete(T item)
+    public void Remove(T item)
     {
-        throw new NotImplementedException();
+        items.Remove(item);
     }
 
-    public IEnumerable<FoundItem> GetAll()
+    public IEnumerable<T> GetAll()
     {
-        throw new NotImplementedException();
+        return items;
     }
 
-    public FoundItem GetById(int id)
+    public T GetById(int id)
     {
-        throw new NotImplementedException();
+        return items[id];
     }
 
     public void SaveChanges()
