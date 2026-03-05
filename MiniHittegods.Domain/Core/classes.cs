@@ -10,9 +10,9 @@ public enum ItemStatus
     Deleted,
 }
 
-public class FoundItem : Model
+public class FoundItem
 {
-    public new ItemStatus Status { get; private set; }
+    public ItemStatus Status { get; private set; }
 
     public FoundItem()
     {

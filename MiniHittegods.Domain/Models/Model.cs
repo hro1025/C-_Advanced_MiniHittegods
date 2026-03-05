@@ -11,7 +11,7 @@ public class Model
 
     public string? FoundAtUtc { get; set; }
 
-    public string? Status { get; set; }
+    public string? ItemStatus { get; set; }
 
     public string? ClaimedBy { get; set; }
 
