@@ -10,3 +10,12 @@
 /home/roan/Documents/Kodehode oppgaver/C#_Advanced_MiniHittegods/MiniHittegods.Domain/obj/Debug/net8.0/MiniHittegods.Domain.pdb
 /home/roan/Documents/Kodehode oppgaver/C#_Advanced_MiniHittegods/MiniHittegods.Domain/obj/Debug/net8.0/ref/MiniHittegods.Domain.dll
 /home/roan/Documents/Kodehode oppgaver/C#_Advanced_MiniHittegods/MiniHittegods.Domain/obj/Debug/net8.0/MiniHittegods.Domain.sourcelink.json
+/home/roan/Documents/Kodehode oppgaver/C#_Advanced_MiniHittegods/MiniHittegods.Domain/bin/Debug/net8.0/MiniHittegods.WebApi.deps.json
+/home/roan/Documents/Kodehode oppgaver/C#_Advanced_MiniHittegods/MiniHittegods.Domain/bin/Debug/net8.0/MiniHittegods.WebApi.runtimeconfig.json
+/home/roan/Documents/Kodehode oppgaver/C#_Advanced_MiniHittegods/MiniHittegods.Domain/bin/Debug/net8.0/appsettings.Development.json
+/home/roan/Documents/Kodehode oppgaver/C#_Advanced_MiniHittegods/MiniHittegods.Domain/bin/Debug/net8.0/appsettings.json
+/home/roan/Documents/Kodehode oppgaver/C#_Advanced_MiniHittegods/MiniHittegods.Domain/bin/Debug/net8.0/MiniHittegods.WebApi
+/home/roan/Documents/Kodehode oppgaver/C#_Advanced_MiniHittegods/MiniHittegods.Domain/bin/Debug/net8.0/MiniHittegods.WebApi.dll
+/home/roan/Documents/Kodehode oppgaver/C#_Advanced_MiniHittegods/MiniHittegods.Domain/bin/Debug/net8.0/MiniHittegods.WebApi.pdb
+/home/roan/Documents/Kodehode oppgaver/C#_Advanced_MiniHittegods/MiniHittegods.Domain/obj/Debug/net8.0/MiniHittegods.Domain.csproj.AssemblyReference.cache
+/home/roan/Documents/Kodehode oppgaver/C#_Advanced_MiniHittegods/MiniHittegods.Domain/obj/Debug/net8.0/MiniHittegods.Domain.csproj.CopyComplete
