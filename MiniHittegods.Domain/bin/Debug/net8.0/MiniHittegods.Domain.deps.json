@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v8.0": {
       "MiniHittegods.Domain/1.0.0": {
         "dependencies": {
-          "MiniHittegods.WebApi": "1.0.0"
+          "MiniHittegods.Api": "1.0.0"
         },
         "runtime": {
           "MiniHittegods.Domain.dll": {}
@@ -72,13 +72,13 @@
           }
         }
       },
-      "MiniHittegods.WebApi/1.0.0": {
+      "MiniHittegods.Api/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.OpenApi": "8.0.23",
           "Swashbuckle.AspNetCore": "6.6.2"
         },
         "runtime": {
-          "MiniHittegods.WebApi.dll": {}
+          "MiniHittegods.Api.dll": {}
         }
       }
     }
@@ -138,7 +138,7 @@
       "path": "swashbuckle.aspnetcore.swaggerui/6.6.2",
       "hashPath": "swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512"
     },
-    "MiniHittegods.WebApi/1.0.0": {
+    "MiniHittegods.Api/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
