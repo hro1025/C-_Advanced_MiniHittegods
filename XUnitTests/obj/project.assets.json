@@ -1713,9 +1713,25 @@
           "build/netcoreapp3.1/xunit.runner.visualstudio.props": {}
         }
       },
+      "MiniHittegods.Api/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/MiniHittegods.Api.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MiniHittegods.Api.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "MiniHittegods.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "MiniHittegods.Api": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/MiniHittegods.Domain.dll": {}
         },
@@ -5517,6 +5533,11 @@
         "xunit.runner.visualstudio.2.4.5.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "MiniHittegods.Api/1.0.0": {
+      "type": "project",
+      "path": "../MiniHittegods.Api/MiniHittegods.Api.csproj",
+      "msbuildProject": "../MiniHittegods.Api/MiniHittegods.Api.csproj"
     },
     "MiniHittegods.Domain/1.0.0": {
       "type": "project",
