@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MiniHittegods.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d53fd33dcf27b282eea9edea4d2462f5c35af994")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ef4df601f8d5a6347261ed14d008dc9f1911cc74")]
 [assembly: System.Reflection.AssemblyProductAttribute("MiniHittegods.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MiniHittegods.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

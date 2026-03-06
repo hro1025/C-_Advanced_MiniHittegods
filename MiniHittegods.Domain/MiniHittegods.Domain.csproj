@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
-    <ProjectReference Include="..\MiniHittegods.WebApi\MiniHittegods.WebApi.csproj" />
+    <ProjectReference Include="..\MiniHittegods.Api\MiniHittegods.Api.csproj" />
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
