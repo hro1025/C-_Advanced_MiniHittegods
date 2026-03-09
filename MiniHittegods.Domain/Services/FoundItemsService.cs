@@ -8,9 +8,22 @@ public static class FoundItemsService
 {
     public static readonly Repository<FoundItems> _repository = new Repository<FoundItems>();
 
-    public static void AddItem(FoundItems item)
+    public static bool AddItem(FoundItems item)
     {
+        if (item == null)
+        {
+            return false;
+        }
+
+        var existingItem = _repository.GetById(item.Id);
+
+        if (existingItem != null)
+        {
+            return false;
+        }
+
         _repository.Add(item);
+        return true;
     }
 
     public static void RemoveItem(FoundItems item)

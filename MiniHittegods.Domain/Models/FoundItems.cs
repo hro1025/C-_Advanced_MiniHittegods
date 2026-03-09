@@ -1,3 +1,5 @@
+using MiniHittegods.Domain.Core;
+
 namespace MiniHittegods.Domain.Models;
 
 public class FoundItems
