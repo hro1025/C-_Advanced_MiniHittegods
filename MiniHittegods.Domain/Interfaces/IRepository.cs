@@ -11,3 +11,8 @@ public interface IRepository<T>
     void Remove(T item);
     void SaveChanges();
 }
+
+public interface IEntity
+{
+    public int Id { get; set; }
+}

@@ -3,9 +3,9 @@ using MiniHittegods.Domain.Models;
 using MiniHittegods.Domain.Services;
 using Xunit;
 
-namespace XUnitTest;
+namespace XDomainTests;
 
-public class UnitTests
+public class DomainTests
 {
     [Fact]
     public void FoundItemAvailable()

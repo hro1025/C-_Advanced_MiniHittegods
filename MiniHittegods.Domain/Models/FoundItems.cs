@@ -1,10 +1,12 @@
 using MiniHittegods.Domain.Core;
+using MiniHittegods.Domain.Interfaces;
 
 namespace MiniHittegods.Domain.Models;
 
-public class FoundItems
+public class FoundItems : IEntity
 {
     public int Id { get; set; }
+
     public string? Title { get; set; }
 
     public string? Category { get; set; }

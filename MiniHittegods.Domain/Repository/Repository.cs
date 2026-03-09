@@ -7,6 +7,7 @@ using MiniHittegods.Domain.Models;
 namespace MiniHittegods.Domain.Repository;
 
 public class Repository<T> : IRepository<T>
+    where T : IEntity
 {
     private readonly List<T> items = new List<T>();
 
@@ -27,7 +28,7 @@ public class Repository<T> : IRepository<T>
 
     public T GetById(int id)
     {
-        return items[id];
+        return items.FirstOrDefault(i => i.Id == id)!;
     }
 
     public void SaveChanges()
