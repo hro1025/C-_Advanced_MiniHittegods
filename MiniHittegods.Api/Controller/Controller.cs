@@ -19,7 +19,7 @@ public class Controller : ControllerBase
             Title = dto.Title,
             FoundLocation = dto.FoundLocation,
             ItemStatus = ItemStatus.Available.ToString(),
-            FoundAtUtc = DateTime.UtcNow.ToString(),
+            FoundAtUtc = DateTime.UtcNow.ToString("o"),
         };
 
         var result = FoundItemsService.AddItem(item);
