@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.Mvc;
 using MiniHittegods.Api.Controller;
 using MiniHittegods.Api.DTO;
 using Xunit;
+using Controller = MiniHittegods.Api.Controller.Controller;
 
 namespace MiniHittegods.Tests;
 
@@ -15,6 +17,6 @@ public class ApiTest
 
         var result = target.CreatItem(dto);
 
-        Assert.Equal(dto, result);
+        Assert.IsType<CreatedResult>(result);
     }
 }

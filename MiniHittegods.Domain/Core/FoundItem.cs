@@ -19,7 +19,7 @@ public class FoundItem
         Status = ItemStatus.Available;
     }
 
-    public void ClaimItem()
+    public void ClaimItem(int id)
     {
         if (Status != ItemStatus.Available)
         {
@@ -39,7 +39,7 @@ public class FoundItem
         Status = ItemStatus.Returned;
     }
 
-    public void DeleteItem()
+    public void RemoveItem()
     {
         if (Status != ItemStatus.Available)
         {

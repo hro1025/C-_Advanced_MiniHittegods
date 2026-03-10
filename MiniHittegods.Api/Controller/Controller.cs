@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Mvc;
 using MiniHittegods.Api.DTO;
 using MiniHittegods.Domain.Core;
@@ -28,20 +29,47 @@ public class Controller : ControllerBase
         {
             return Conflict();
         }
-        return Created();
+        return Created($"/api/items/{item.Id}", item);
     }
 
     [HttpGet]
     [Route("api/items/{id}")]
     public IActionResult Get(int id)
     {
-        return Ok(new[] { "Sample data" });
+        var item = FoundItemsService.GetByIdItem(id);
+
+        if (item == null)
+        {
+            return NotFound();
+        }
+        return Ok($"/api/items/{item}");
+    }
+
+    public ItemStatus Status { get; set; }
+
+    [HttpPost]
+    [Route("api/items/{id}/claim")]
+    public IActionResult Claim(int id)
+    {
+        var result = FoundItemsService.ClaimItem(id);
+
+        if (!result)
+        {
+            return Conflict();
+        }
+        return Ok($"/api/items/claim{result}");
     }
 
     [HttpDelete]
     [Route("api/items/{id}")]
-    public IActionResult Delete(int id)
+    public IActionResult Remove(int id)
     {
-        return Ok(new[] { "Sample data" });
+        var item = FoundItemsService.GetByIdItem(id);
+
+        if (item != null)
+        {
+            return NotFound();
+        }
+        return Ok();
     }
 }

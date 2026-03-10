@@ -47,7 +47,7 @@ public class DomainTests
     {
         var target = new FoundItem();
 
-        target.DeleteItem();
+        target.RemoveItem();
 
         var status = target.Status;
 
@@ -118,7 +118,7 @@ public class DomainTests
             Category = "action",
         };
         FoundItemsService.AddItem(itemOne);
-        var result = FoundItemsService.GetByIdItem(0);
+        var result = FoundItemsService.GetByIdItem(1);
 
         Assert.Equal(itemOne, result);
     }

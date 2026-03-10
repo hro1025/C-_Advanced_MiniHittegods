@@ -10,10 +10,7 @@ public static class FoundItemsService
 
     public static bool AddItem(FoundItems item)
     {
-        if (item == null)
-        {
-            return false;
-        }
+        item.Id = _repository.GetAll().Count() + 1;
 
         var existingItem = _repository.GetById(item.Id);
 
@@ -26,9 +23,32 @@ public static class FoundItemsService
         return true;
     }
 
-    public static void RemoveItem(FoundItems item)
+    public static bool RemoveItem(FoundItems item)
     {
+        var existingItem = _repository.GetById(item.Id);
+
+        if (existingItem == null)
+        {
+            return false;
+        }
         _repository.Remove(item);
+        return true;
+    }
+
+    public static bool ClaimItem(FoundItems item)
+    {
+        var existingItem = _repository.GetById(item.Id);
+
+        if (existingItem == null)
+        {
+            return false;
+        }
+        if (existingItem.Status != ItemStatus.Available)
+        {
+            return false;
+        }
+        item.Status = ItemStatus.Claimed;
+        return true;
     }
 
     public static void GetAllItem()
