@@ -14,7 +14,7 @@ public class DomainTests
 
         var status = target.Status;
 
-        Assert.Equal(ItemStatus.Available, status);
+        Assert.Equal(Status.Available, status);
     }
 
     [Fact]
@@ -26,7 +26,7 @@ public class DomainTests
 
         var status = target.Status;
 
-        Assert.Equal(ItemStatus.Claimed, status);
+        Assert.Equal(Status.Claimed, status);
     }
 
     [Fact]
@@ -39,7 +39,7 @@ public class DomainTests
 
         var status = target.Status;
 
-        Assert.Equal(ItemStatus.Returned, status);
+        Assert.Equal(Status.Returned, status);
     }
 
     [Fact]
@@ -51,7 +51,7 @@ public class DomainTests
 
         var status = target.Status;
 
-        Assert.Equal(ItemStatus.Deleted, status);
+        Assert.Equal(Status.Deleted, status);
     }
 
     [Fact]

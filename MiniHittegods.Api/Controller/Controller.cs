@@ -19,7 +19,7 @@ public class Controller : ControllerBase
         {
             Title = dto.Title,
             FoundLocation = dto.FoundLocation,
-            ItemStatus = ItemStatus.Available.ToString(),
+            ItemStatus = Status.Available.ToString(),
             FoundAtUtc = DateTime.UtcNow.ToString("o"),
         };
 
@@ -44,8 +44,6 @@ public class Controller : ControllerBase
         }
         return Ok($"/api/items/{item}");
     }
-
-    public ItemStatus Status { get; set; }
 
     [HttpPost]
     [Route("api/items/{id}/claim")]

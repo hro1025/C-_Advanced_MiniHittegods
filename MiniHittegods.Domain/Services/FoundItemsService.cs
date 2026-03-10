@@ -43,11 +43,11 @@ public static class FoundItemsService
         {
             return false;
         }
-        if (existingItem.Status != ItemStatus.Available)
+        if (existingItem.Status != Status.Available)
         {
             return false;
         }
-        item.Status = ItemStatus.Claimed;
+        item.Status = Status.Claimed;
         return true;
     }
 

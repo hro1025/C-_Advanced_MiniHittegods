@@ -22,5 +22,5 @@ public class FoundItems : IEntity
     public string? ClaimedAtUtc { get; set; }
 
     public string? ReturnedAtUtc { get; set; }
-    public ItemStatus Status { get; internal set; }
+    public Status Status { get; internal set; }
 }

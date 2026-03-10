@@ -2,7 +2,7 @@ using MiniHittegods.Domain.Models;
 
 namespace MiniHittegods.Domain.Core;
 
-public enum ItemStatus
+public enum Status
 {
     Available,
     Claimed,
@@ -12,40 +12,40 @@ public enum ItemStatus
 
 public class FoundItem
 {
-    public ItemStatus Status { get; private set; }
+    public Status Status { get; private set; }
 
     public FoundItem()
     {
-        Status = ItemStatus.Available;
+        Status = Status.Available;
     }
 
     public void ClaimItem(int id)
     {
-        if (Status != ItemStatus.Available)
+        if (Status != Status.Available)
         {
             throw new InvalidOperationException("Item can only be claimed when available.");
         }
 
-        Status = ItemStatus.Claimed;
+        Status = Status.Claimed;
     }
 
     public void ReturnItem()
     {
-        if (Status != ItemStatus.Claimed)
+        if (Status != Status.Claimed)
         {
             throw new InvalidOperationException("Item can only be returned when claimed.");
         }
 
-        Status = ItemStatus.Returned;
+        Status = Status.Returned;
     }
 
     public void RemoveItem()
     {
-        if (Status != ItemStatus.Available)
+        if (Status != Status.Available)
         {
             throw new InvalidOperationException("Item can only be deleted when available.");
         }
 
-        Status = ItemStatus.Deleted;
+        Status = Status.Deleted;
     }
 }
