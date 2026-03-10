@@ -7,18 +7,11 @@ namespace MiniHittegods.Domain.Services;
 public static class FoundItemsService
 {
     public static readonly Repository<FoundItems> _repository = new Repository<FoundItems>();
+    private static int _nextId = 1;
 
     public static bool AddItem(FoundItems item)
     {
-        item.Id = _repository.GetAll().Count() + 1;
-
-        var existingItem = _repository.GetById(item.Id);
-
-        if (existingItem != null)
-        {
-            return false;
-        }
-
+        item.Id = _nextId++;
         _repository.Add(item);
         return true;
     }
