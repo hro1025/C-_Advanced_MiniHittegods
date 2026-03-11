@@ -36,7 +36,7 @@ public class Controller : ControllerBase
     [Route("api/items/{id}")]
     public IActionResult Get(int id)
     {
-        var item = FoundItemsService.GetByIdItem(id);
+        var item = FoundItemsService.GetById(id);
 
         if (item == null)
         {
@@ -49,7 +49,13 @@ public class Controller : ControllerBase
     [Route("api/items/{id}/claim")]
     public IActionResult Claim(int id)
     {
-        var result = FoundItemsService.ClaimItem(id);
+        var item = FoundItemsService.GetById(id);
+
+        if (item == null)
+        {
+            return NotFound();
+        }
+        var result = FoundItemsService.ClaimItem(item);
 
         if (!result)
         {
@@ -62,7 +68,7 @@ public class Controller : ControllerBase
     [Route("api/items/{id}")]
     public IActionResult Remove(int id)
     {
-        var item = FoundItemsService.GetByIdItem(id);
+        var item = FoundItemsService.GetById(id);
 
         if (item != null)
         {

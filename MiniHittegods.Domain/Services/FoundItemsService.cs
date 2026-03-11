@@ -49,7 +49,7 @@ public static class FoundItemsService
         _repository.GetAll();
     }
 
-    public static FoundItems GetByIdItem(int id)
+    public static FoundItems GetById(int id)
     {
         return _repository.GetById(id);
     }

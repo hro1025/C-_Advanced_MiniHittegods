@@ -21,6 +21,11 @@ public class Repository<T> : IRepository<T>
         items.Remove(item);
     }
 
+    public void Clear()
+    {
+        items.Clear();
+    }
+
     public IEnumerable<T> GetAll()
     {
         return items;

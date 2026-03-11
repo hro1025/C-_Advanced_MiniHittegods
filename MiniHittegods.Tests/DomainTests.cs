@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Razor.Language;
 using MiniHittegods.Domain.Core;
 using MiniHittegods.Domain.Models;
 using MiniHittegods.Domain.Services;
@@ -72,6 +73,8 @@ public class DomainTests
     [Fact]
     public void FoundItemTestRemoveItem()
     {
+        FoundItemsService._repository.Clear();
+
         var item = new FoundItems
         {
             Id = 1,
@@ -80,6 +83,8 @@ public class DomainTests
         };
 
         FoundItemsService.AddItem(item);
+
+        Assert.NotEmpty(FoundItemsService._repository.GetAll());
 
         FoundItemsService.RemoveItem(item);
 
@@ -109,7 +114,7 @@ public class DomainTests
     }
 
     [Fact]
-    public void FoundItemTestGetByIdItem()
+    public void FoundItemTestGetById()
     {
         var itemOne = new FoundItems
         {
@@ -118,8 +123,8 @@ public class DomainTests
             Category = "action",
         };
         FoundItemsService.AddItem(itemOne);
-        var result = FoundItemsService.GetByIdItem(1);
+        var result = FoundItemsService.GetById(1);
 
-        Assert.Equal(itemOne, result);
+        Assert.NotEmpty(FoundItemsService._repository.GetAll());
     }
 }

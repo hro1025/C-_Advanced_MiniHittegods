@@ -19,7 +19,7 @@ public class FoundItem
         Status = Status.Available;
     }
 
-    public void ClaimItem(int id)
+    public void ClaimItem()
     {
         if (Status != Status.Available)
         {
