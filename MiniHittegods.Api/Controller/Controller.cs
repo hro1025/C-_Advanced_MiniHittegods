@@ -91,6 +91,13 @@ public class Controller : ControllerBase
         return Ok(item);
     }
 
+    [HttpPost]
+    [Route("api/items/{id}")]
+    public IActionResult Return()
+    {
+        return Ok();
+    }
+
     [HttpDelete]
     [Route("api/items/{id}")]
     public IActionResult Remove(int id)
