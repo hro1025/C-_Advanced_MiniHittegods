@@ -3,7 +3,7 @@ using MiniHittegods.Domain.Interfaces;
 
 namespace MiniHittegods.Domain.Models;
 
-public class FoundItems : IEntity
+public class FoundItemsModel : IEntity
 {
     public int Id { get; set; }
 
@@ -15,12 +15,10 @@ public class FoundItems : IEntity
 
     public string? FoundAtUtc { get; set; }
 
-    public string? ItemStatus { get; set; }
-
     public string? ClaimedBy { get; set; }
 
     public string? ClaimedAtUtc { get; set; }
 
     public string? ReturnedAtUtc { get; set; }
-    public Status Status { get; internal set; }
+    public Status Status { get; set; }
 }

@@ -6,17 +6,18 @@ namespace MiniHittegods.Domain.Services;
 
 public static class FoundItemsService
 {
-    public static readonly Repository<FoundItems> _repository = new Repository<FoundItems>();
+    public static readonly Repository<FoundItemsModel> _repository =
+        new Repository<FoundItemsModel>();
     private static int _nextId = 1;
 
-    public static bool AddItem(FoundItems item)
+    public static bool AddItem(FoundItemsModel item)
     {
         item.Id = _nextId++;
         _repository.Add(item);
         return true;
     }
 
-    public static bool RemoveItem(FoundItems item)
+    public static bool RemoveItem(FoundItemsModel item)
     {
         var existingItem = _repository.GetById(item.Id);
 
@@ -28,7 +29,7 @@ public static class FoundItemsService
         return true;
     }
 
-    public static bool ClaimItem(FoundItems item)
+    public static bool ClaimItem(FoundItemsModel item)
     {
         var existingItem = _repository.GetById(item.Id);
 
@@ -44,12 +45,12 @@ public static class FoundItemsService
         return true;
     }
 
-    public static void GetAllItem()
+    public static List<FoundItemsModel> GetAllItem()
     {
-        _repository.GetAll();
+        return _repository.GetAll().ToList();
     }
 
-    public static FoundItems GetById(int id)
+    public static FoundItemsModel GetById(int id)
     {
         return _repository.GetById(id);
     }

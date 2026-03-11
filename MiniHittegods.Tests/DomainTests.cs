@@ -9,7 +9,7 @@ namespace XDomainTests;
 public class DomainTests
 {
     [Fact]
-    public void FoundItemAvailable()
+    public void FoundItemAvailableTest()
     {
         var target = new FoundItem();
 
@@ -19,7 +19,7 @@ public class DomainTests
     }
 
     [Fact]
-    public void FoundItemClaim()
+    public void FoundItemClaimTest()
     {
         var target = new FoundItem();
 
@@ -31,7 +31,7 @@ public class DomainTests
     }
 
     [Fact]
-    public void FoundItemReturn()
+    public void FoundItemReturnTest()
     {
         var target = new FoundItem();
 
@@ -44,7 +44,7 @@ public class DomainTests
     }
 
     [Fact]
-    public void FoundItemDelete()
+    public void FoundItemDeleteTest()
     {
         var target = new FoundItem();
 
@@ -56,7 +56,7 @@ public class DomainTests
     }
 
     [Fact]
-    public void FoundItemTestNewItem()
+    public void FoundItemNewItemTest()
     {
         var item = new FoundItems
         {
@@ -71,7 +71,7 @@ public class DomainTests
     }
 
     [Fact]
-    public void FoundItemTestRemoveItem()
+    public void FoundItemRemoveItemTest()
     {
         FoundItemsService._repository.Clear();
 
@@ -92,7 +92,7 @@ public class DomainTests
     }
 
     [Fact]
-    public void FoundItemTestGetAllItem()
+    public void FoundItemGetAllItemTest()
     {
         var itemOne = new FoundItems
         {
@@ -114,7 +114,7 @@ public class DomainTests
     }
 
     [Fact]
-    public void FoundItemTestGetById()
+    public void FoundItemGetByIdTest()
     {
         var itemOne = new FoundItems
         {

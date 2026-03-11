@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Mvc;
 using MiniHittegods.Api.DTO;
@@ -15,11 +16,11 @@ public class Controller : ControllerBase
     [Route("api/items")]
     public IActionResult CreatItem(CreateItemDto dto)
     {
-        var item = new FoundItems
+        var item = new FoundItemsModel
         {
             Title = dto.Title,
             FoundLocation = dto.FoundLocation,
-            ItemStatus = Status.Available.ToString(),
+            Status = Status.Available,
             FoundAtUtc = DateTime.UtcNow.ToString("o"),
         };
 
@@ -33,8 +34,34 @@ public class Controller : ControllerBase
     }
 
     [HttpGet]
+    [Route("api/items")]
+    public IActionResult GetItems(string? status, string? category, string? item)
+    {
+        var allItems = FoundItemsService.GetAllItem();
+
+        if (!string.IsNullOrEmpty(status))
+        {
+            allItems = allItems.Where(i => i.Status.ToString() == status).ToList();
+        }
+        if (!string.IsNullOrEmpty(category))
+        {
+            allItems = allItems.Where(i => i.Category == category).ToList();
+        }
+
+        if (!string.IsNullOrEmpty(item))
+        {
+            allItems = allItems
+                .Where(i =>
+                    i.Title != null && i.Title.Contains(item, StringComparison.OrdinalIgnoreCase)
+                )
+                .ToList();
+        }
+        return Ok(allItems);
+    }
+
+    [HttpGet]
     [Route("api/items/{id}")]
-    public IActionResult Get(int id)
+    public IActionResult GetItem(int id)
     {
         var item = FoundItemsService.GetById(id);
 
@@ -42,7 +69,7 @@ public class Controller : ControllerBase
         {
             return NotFound();
         }
-        return Ok($"/api/items/{item}");
+        return Ok(item);
     }
 
     [HttpPost]
@@ -61,7 +88,7 @@ public class Controller : ControllerBase
         {
             return Conflict();
         }
-        return Ok($"/api/items/claim{result}");
+        return Ok(item);
     }
 
     [HttpDelete]
@@ -70,10 +97,17 @@ public class Controller : ControllerBase
     {
         var item = FoundItemsService.GetById(id);
 
-        if (item != null)
+        if (item == null)
         {
             return NotFound();
         }
-        return Ok();
+
+        if (item.Status == Status.Available)
+        {
+            FoundItemsService.RemoveItem(item);
+            return NoContent();
+        }
+
+        return Conflict();
     }
 }
