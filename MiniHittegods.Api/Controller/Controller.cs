@@ -13,15 +13,16 @@ namespace MiniHittegods.Api.Controller;
 public class Controller : ControllerBase
 {
     [HttpPost]
-    [Route("api/items")]
+    [Route("api/items/createitem")]
     public IActionResult CreatItem(CreateItemDto dto)
     {
         var item = new FoundItemsModel
         {
             Title = dto.Title,
             FoundLocation = dto.FoundLocation,
+            Category = "Box",
             Status = Status.Available,
-            FoundAtUtc = DateTime.UtcNow.ToString("o"),
+            FoundAtUtc = DateTime.UtcNow.ToString(),
         };
 
         var result = FoundItemsService.AddItem(item);
@@ -34,8 +35,8 @@ public class Controller : ControllerBase
     }
 
     [HttpGet]
-    [Route("api/items")]
-    public IActionResult GetItems(string? status, string? category, string? item)
+    [Route("api/items/getallitems")]
+    public IActionResult GetAllItems(string? status, string? category, string? item)
     {
         var allItems = FoundItemsService.GetAllItem();
 
@@ -60,7 +61,7 @@ public class Controller : ControllerBase
     }
 
     [HttpGet]
-    [Route("api/items/{id}")]
+    [Route("api/items/{id}/getitem")]
     public IActionResult GetItem(int id)
     {
         var item = FoundItemsService.GetById(id);
@@ -74,7 +75,7 @@ public class Controller : ControllerBase
 
     [HttpPost]
     [Route("api/items/{id}/claim")]
-    public IActionResult Claim(int id)
+    public IActionResult Claim(int id, string? claimedBy)
     {
         var item = FoundItemsService.GetById(id);
 
@@ -82,7 +83,7 @@ public class Controller : ControllerBase
         {
             return NotFound();
         }
-        var result = FoundItemsService.ClaimItem(item);
+        var result = FoundItemsService.ClaimItem(item, claimedBy);
 
         if (!result)
         {
@@ -92,14 +93,25 @@ public class Controller : ControllerBase
     }
 
     [HttpPost]
-    [Route("api/items/{id}")]
-    public IActionResult Return()
+    [Route("api/items/{id}/return")]
+    public IActionResult Return(int id)
     {
-        return Ok();
+        var item = FoundItemsService.GetById(id);
+
+        if (item == null)
+        {
+            return NotFound();
+        }
+        if (item.Status != Status.Claimed)
+        {
+            return Conflict();
+        }
+        FoundItemsService.ReturnItem(item);
+        return Ok(item);
     }
 
     [HttpDelete]
-    [Route("api/items/{id}")]
+    [Route("api/items/{id}/remove")]
     public IActionResult Remove(int id)
     {
         var item = FoundItemsService.GetById(id);
