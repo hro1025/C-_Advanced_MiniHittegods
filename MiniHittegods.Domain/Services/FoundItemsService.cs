@@ -1,7 +1,7 @@
 using System.Runtime.CompilerServices;
 using System.Security.Claims;
 using MiniHittegods.Domain.Core;
-using MiniHittegods.Domain.interfaces;
+using MiniHittegods.Domain.Interfaces;
 using MiniHittegods.Domain.Models;
 using MiniHittegods.Domain.Repository;
 
