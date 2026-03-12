@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniHittegods.Api", "MiniHi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniHittegods.Tests", "MiniHittegods.Tests\MiniHittegods.Tests.csproj", "{75F28720-885D-4F82-BC08-DB3E4B158B43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniHittegods.Infrastructure", "MiniHittegods.Infrastructure\MiniHittegods.Infrastructure.csproj", "{1DA31564-6F91-4FC0-B08F-5F2DDF9034F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,14 @@ Global
 		{75F28720-885D-4F82-BC08-DB3E4B158B43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75F28720-885D-4F82-BC08-DB3E4B158B43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75F28720-885D-4F82-BC08-DB3E4B158B43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC35D002-1550-4B36-B925-E8B344254FD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC35D002-1550-4B36-B925-E8B344254FD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC35D002-1550-4B36-B925-E8B344254FD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC35D002-1550-4B36-B925-E8B344254FD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DA31564-6F91-4FC0-B08F-5F2DDF9034F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DA31564-6F91-4FC0-B08F-5F2DDF9034F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DA31564-6F91-4FC0-B08F-5F2DDF9034F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DA31564-6F91-4FC0-B08F-5F2DDF9034F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

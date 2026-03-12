@@ -3,6 +3,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Mvc;
 using MiniHittegods.Api.DTO;
+using MiniHittegods.Domain;
 using MiniHittegods.Domain.Core;
 using MiniHittegods.Domain.Models;
 using MiniHittegods.Domain.Services;

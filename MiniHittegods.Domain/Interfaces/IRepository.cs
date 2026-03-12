@@ -1,6 +1,6 @@
 using MiniHittegods.Domain.Core;
 
-namespace MiniHittegods.Domain.Interfaces;
+namespace MiniHittegods.Domain.interfaces;
 
 public interface IRepository<T>
 {

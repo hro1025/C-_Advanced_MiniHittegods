@@ -1,8 +1,7 @@
 using System.Linq;
 using Microsoft.VisualBasic;
 using MiniHittegods.Domain.Core;
-using MiniHittegods.Domain.Interfaces;
-using MiniHittegods.Domain.Models;
+using MiniHittegods.Domain.interfaces;
 
 namespace MiniHittegods.Domain.Repository;
 

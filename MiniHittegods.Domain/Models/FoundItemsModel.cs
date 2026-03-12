@@ -1,5 +1,5 @@
 using MiniHittegods.Domain.Core;
-using MiniHittegods.Domain.Interfaces;
+using MiniHittegods.Domain.interfaces;
 
 namespace MiniHittegods.Domain.Models;
 
