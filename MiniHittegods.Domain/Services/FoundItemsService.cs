@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+using System.Security.Claims;
 using MiniHittegods.Domain.Core;
 using MiniHittegods.Domain.Models;
 using MiniHittegods.Domain.Repository;
@@ -12,8 +14,16 @@ public static class FoundItemsService
 
     public static bool AddItem(FoundItemsModel item)
     {
+        if (item == null)
+        {
+            return false;
+        }
+
         item.Id = _nextId++;
+        item.Status = Status.Available;
+
         _repository.Add(item);
+
         return true;
     }
 
@@ -29,7 +39,7 @@ public static class FoundItemsService
         return true;
     }
 
-    public static bool ClaimItem(FoundItemsModel item)
+    public static bool ClaimItem(FoundItemsModel item, string? claimedBy)
     {
         var existingItem = _repository.GetById(item.Id);
 
@@ -41,7 +51,26 @@ public static class FoundItemsService
         {
             return false;
         }
-        item.Status = Status.Claimed;
+        existingItem.Status = Status.Claimed;
+        existingItem.ClaimedBy = claimedBy;
+        existingItem.ClaimedAtUtc = DateTime.UtcNow.ToString();
+        return true;
+    }
+
+    public static bool ReturnItem(FoundItemsModel item)
+    {
+        var existingItem = _repository.GetById(item.Id);
+
+        if (existingItem == null)
+        {
+            return false;
+        }
+        if (existingItem.Status != Status.Claimed)
+        {
+            return false;
+        }
+        existingItem.Status = Status.Available;
+        existingItem.ReturnedAtUtc = DateTime.UtcNow.ToString();
         return true;
     }
 
