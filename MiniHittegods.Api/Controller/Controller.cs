@@ -13,6 +13,13 @@ namespace MiniHittegods.Api.Controller;
 [ApiController]
 public class Controller : ControllerBase
 {
+    private readonly FoundItemsService _service;
+
+    public Controller(FoundItemsService service)
+    {
+        _service = service;
+    }
+
     [HttpPost]
     [Route("api/items/createitem")]
     public IActionResult CreatItem(CreateItemDto dto)
@@ -26,7 +33,7 @@ public class Controller : ControllerBase
             FoundAtUtc = DateTime.UtcNow.ToString(),
         };
 
-        var result = FoundItemsService.AddItem(item);
+        var result = _service.AddItem(item);
 
         if (!result)
         {
@@ -39,7 +46,7 @@ public class Controller : ControllerBase
     [Route("api/items/getallitems")]
     public IActionResult GetAllItems(string? status, string? category, string? item)
     {
-        var allItems = FoundItemsService.GetAllItem();
+        var allItems = _service.GetAllItem();
 
         if (!string.IsNullOrEmpty(status))
         {
@@ -65,7 +72,7 @@ public class Controller : ControllerBase
     [Route("api/items/{id}/getitem")]
     public IActionResult GetItem(int id)
     {
-        var item = FoundItemsService.GetById(id);
+        var item = _service.GetById(id);
 
         if (item == null)
         {
@@ -78,13 +85,13 @@ public class Controller : ControllerBase
     [Route("api/items/{id}/claim")]
     public IActionResult Claim(int id, string? claimedBy)
     {
-        var item = FoundItemsService.GetById(id);
+        var item = _service.GetById(id);
 
         if (item == null)
         {
             return NotFound();
         }
-        var result = FoundItemsService.ClaimItem(item, claimedBy);
+        var result = _service.ClaimItem(item, claimedBy);
 
         if (!result)
         {
@@ -97,7 +104,7 @@ public class Controller : ControllerBase
     [Route("api/items/{id}/return")]
     public IActionResult Return(int id)
     {
-        var item = FoundItemsService.GetById(id);
+        var item = _service.GetById(id);
 
         if (item == null)
         {
@@ -107,7 +114,7 @@ public class Controller : ControllerBase
         {
             return Conflict();
         }
-        FoundItemsService.ReturnItem(item);
+        _service.ReturnItem(item);
         return Ok(item);
     }
 
@@ -115,7 +122,7 @@ public class Controller : ControllerBase
     [Route("api/items/{id}/remove")]
     public IActionResult Remove(int id)
     {
-        var item = FoundItemsService.GetById(id);
+        var item = _service.GetById(id);
 
         if (item == null)
         {
@@ -124,7 +131,7 @@ public class Controller : ControllerBase
 
         if (item.Status == Status.Available)
         {
-            FoundItemsService.RemoveItem(item);
+            _service.RemoveItem(item);
             return NoContent();
         }
 
