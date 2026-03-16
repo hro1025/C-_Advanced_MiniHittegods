@@ -35,13 +35,7 @@ public class Repository<T> : IRepository<T>
         return items.FirstOrDefault(i => i.Id == id)!;
     }
 
-    public void SaveChanges()
-    {
-        throw new NotImplementedException();
-    }
+    public void SaveChanges() { }
 
-    public void Update(T item)
-    {
-        throw new NotImplementedException();
-    }
+    public void Update(T item) { }
 }

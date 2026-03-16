@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Runtime.CompilerServices;
 using System.Security.Claims;
 using MiniHittegods.Domain.Core;
@@ -89,6 +90,11 @@ namespace MiniHittegods.Domain.Services
         public FoundItemsModel GetById(int id)
         {
             return _repository!.GetById(id);
+        }
+
+        public IEnumerable GetAll()
+        {
+            return _repository!.GetAll();
         }
     }
 }

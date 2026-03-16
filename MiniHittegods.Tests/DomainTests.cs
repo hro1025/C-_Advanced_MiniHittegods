@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Razor.Language;
 using MiniHittegods.Domain.Core;
+using MiniHittegods.Domain.Interfaces;
 using MiniHittegods.Domain.Models;
+using MiniHittegods.Domain.Repository;
 using MiniHittegods.Domain.Services;
 using Xunit;
 
@@ -8,6 +10,14 @@ namespace XDomainTests;
 
 public class DomainTests
 {
+    private readonly Repository<FoundItemsModel> _repository = new();
+    private readonly FoundItemsService _service;
+
+    public DomainTests()
+    {
+        _service = new FoundItemsService(_repository);
+    }
+
     [Fact]
     public void FoundItemAvailableTest()
     {
@@ -58,73 +68,70 @@ public class DomainTests
     [Fact]
     public void FoundItemNewItemTest()
     {
-        var item = new FoundItems
+        var item = new FoundItemsModel
         {
             Id = 1,
             Title = "test",
             Category = "action",
         };
+        _service.AddItem(item);
 
-        FoundItemsService.AddItem(item);
-
-        Assert.NotEmpty(FoundItemsService._repository.GetAll());
+        Assert.NotEmpty(_service.GetAll());
     }
 
     [Fact]
     public void FoundItemRemoveItemTest()
     {
-        FoundItemsService._repository.Clear();
-
-        var item = new FoundItems
+        var item = new FoundItemsModel
         {
             Id = 1,
             Title = "test",
             Category = "action",
         };
 
-        FoundItemsService.AddItem(item);
+        _service.AddItem(item);
 
-        Assert.NotEmpty(FoundItemsService._repository.GetAll());
+        Assert.NotEmpty(_service.GetAll());
 
-        FoundItemsService.RemoveItem(item);
+        _service.RemoveItem(item);
 
-        Assert.Empty(FoundItemsService._repository.GetAll());
+        Assert.Empty(_service.GetAll());
     }
 
     [Fact]
     public void FoundItemGetAllItemTest()
     {
-        var itemOne = new FoundItems
+        var itemOne = new FoundItemsModel
         {
             Id = 1,
             Title = "testOne",
             Category = "action",
         };
-        var itemTwo = new FoundItems
+        var itemTwo = new FoundItemsModel
         {
             Id = 2,
             Title = "testTwo",
             Category = "romance",
         };
+        _service.AddItem(itemOne);
+        _service.AddItem(itemTwo);
 
-        FoundItemsService.AddItem(itemOne);
-        FoundItemsService.AddItem(itemTwo);
-
-        Assert.NotEmpty(FoundItemsService._repository.GetAll());
+        Assert.NotEmpty(_service.GetAll());
     }
 
     [Fact]
     public void FoundItemGetByIdTest()
     {
-        var itemOne = new FoundItems
+        var itemOne = new FoundItemsModel
         {
             Id = 1,
             Title = "testOne",
             Category = "action",
         };
-        FoundItemsService.AddItem(itemOne);
-        var result = FoundItemsService.GetById(1);
+        _service.AddItem(itemOne);
 
-        Assert.NotEmpty(FoundItemsService._repository.GetAll());
+        var result = _service.GetById(1);
+
+        Assert.Equal(itemOne.Id, result.Id);
     }
 }

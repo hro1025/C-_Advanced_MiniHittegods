@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "4fMIjwzNMFB8qu68H4Svz+4MXbETuOf9orOWIewnHBUxsVfitIjb1j/wodL6g4dV08Mu7mcAEJ97jopIDdPXUg==",
+  "dgSpecHash": "EUWYDCoJ8UsanaJgThQ64aWwdMHG1xBMLPjqKPnF/xcmptVpCyl9GgXSRdXkHs4u60ygFgb388KKJk780a9GTw==",
   "success": true,
   "projectFilePath": "/home/roan/Documents/Kodehode oppgaver/C#_Advanced_MiniHittegods/MiniHittegods.Domain/MiniHittegods.Domain.csproj",
   "expectedPackageFiles": [
-    "/home/roan/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.23/microsoft.aspnetcore.app.ref.8.0.23.nupkg.sha512"
+    "/home/roan/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.25/microsoft.aspnetcore.app.ref.8.0.25.nupkg.sha512"
   ],
   "logs": []
 }
