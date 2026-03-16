@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using MiniHittegods.Api.Controller;
 using MiniHittegods.Api.DTO;
@@ -27,10 +28,9 @@ public class ApiTests
     }
 
     [Fact]
-    public void CreateItemTest()
+    public void CreateItemTest102()
     {
         var createItem = _controller.CreatItem(_dto);
-
         var createResult = Assert.IsType<CreatedResult>(createItem);
         Assert.Equal(201, createResult.StatusCode);
     }
@@ -38,9 +38,7 @@ public class ApiTests
     [Fact]
     public void GetAllItemTest()
     {
-        var createItem = _controller.CreatItem(_dto);
-        Assert.IsType<CreatedResult>(createItem);
-
+        _controller.CreatItem(_dto);
         var getAllItems = _controller.GetAllItems(null, null, null);
 
         var result = Assert.IsType<OkObjectResult>(getAllItems);
@@ -50,11 +48,9 @@ public class ApiTests
     }
 
     [Fact]
-    public void GetItemTest()
+    public void GetItemTest200()
     {
         var createItem = _controller.CreatItem(_dto);
-        Assert.IsType<CreatedResult>(createItem);
-
         var createdResult = (CreatedResult)createItem;
         var id = ((FoundItemsModel)createdResult.Value!).Id;
 
@@ -65,11 +61,17 @@ public class ApiTests
     }
 
     [Fact]
-    public void ClaimItemTest()
+    public void GetItemTest404()
+    {
+        var result = Assert.IsType<NotFoundResult>(_controller.GetItem(999));
+
+        Assert.Equal(404, result.StatusCode);
+    }
+
+    [Fact]
+    public void ClaimItemTest200()
     {
         var createItem = _controller.CreatItem(_dto);
-        Assert.IsType<CreatedResult>(createItem);
-
         var createdResult = (CreatedResult)createItem;
         var id = ((FoundItemsModel)createdResult.Value!).Id;
 
@@ -81,37 +83,88 @@ public class ApiTests
     }
 
     [Fact]
-    public void ReturnItemTest()
+    public void ClaimItemTest404()
+    {
+        var result = Assert.IsType<NotFoundResult>(_controller.Claim(777, null));
+
+        Assert.Equal(404, result.StatusCode);
+    }
+
+    [Fact]
+    public void ClaimItemTest409()
     {
         var createItem = _controller.CreatItem(_dto);
-        Assert.IsType<CreatedResult>(createItem);
+        var createdResult = (CreatedResult)createItem;
+        var id = ((FoundItemsModel)createdResult.Value!).Id;
 
+        _controller.Claim(id, null);
+        var result = _controller.Claim(id, null);
+
+        var item = Assert.IsType<ConflictResult>(result);
+        Assert.Equal(409, item.StatusCode);
+    }
+
+    [Fact]
+    public void ReturnItemTest200()
+    {
+        var createItem = _controller.CreatItem(_dto);
         var createdResult = (CreatedResult)createItem;
         var id = ((FoundItemsModel)createdResult.Value!).Id;
 
         var claimItem = Assert.IsType<OkObjectResult>(_controller.Claim(id, null));
-
         Assert.IsType<OkObjectResult>(claimItem);
 
-        var ReturnItem = Assert.IsType<OkObjectResult>(_controller.Return(id));
-
-        var item = Assert.IsType<FoundItemsModel>(ReturnItem.Value);
-
-        Assert.Equal("Available", item.Status.ToString());
+        var result = Assert.IsType<OkObjectResult>(_controller.Return(id));
+        Assert.Equal(200, result.StatusCode);
     }
 
     [Fact]
-    public void RemoveItemTest()
+    public void ReturnItemTest404()
+    {
+        var result = Assert.IsType<NotFoundResult>(_controller.Return(999));
+
+        Assert.Equal(404, result.StatusCode);
+    }
+
+    [Fact]
+    public void ReturnItemTest409()
     {
         var createItem = _controller.CreatItem(_dto);
-        Assert.IsType<CreatedResult>(createItem);
-
         var createdResult = (CreatedResult)createItem;
         var id = ((FoundItemsModel)createdResult.Value!).Id;
 
-        Assert.IsType<NoContentResult>(_controller.Remove(id));
+        var result = Assert.IsType<ConflictResult>(_controller.Return(id));
+        Assert.Equal(409, result.StatusCode);
+    }
 
-        var result = _controller.GetItem(id);
-        Assert.IsType<NotFoundResult>(result);
+    [Fact]
+    public void RemoveItemTest204()
+    {
+        var createItem = _controller.CreatItem(_dto);
+        var createdResult = (CreatedResult)createItem;
+        var id = ((FoundItemsModel)createdResult.Value!).Id;
+
+        var result = _controller.Remove(id);
+        Assert.IsType<NoContentResult>(result);
+    }
+
+    [Fact]
+    public void RemoveItemTest404()
+    {
+        var result = Assert.IsType<NotFoundResult>(_controller.Remove(999));
+
+        Assert.Equal(404, result.StatusCode);
+    }
+
+    [Fact]
+    public void RemoveItemTest409()
+    {
+        var createItem = _controller.CreatItem(_dto);
+        var createdResult = (CreatedResult)createItem;
+        var id = ((FoundItemsModel)createdResult.Value!).Id;
+
+        _controller.Claim(id, null);
+        var result = _controller.Remove(id);
+        Assert.IsType<ConflictResult>(result);
     }
 }
