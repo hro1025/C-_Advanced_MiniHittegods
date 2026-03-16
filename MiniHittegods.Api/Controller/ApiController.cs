@@ -28,7 +28,7 @@ public class ApiController : ControllerBase
         {
             Title = dto.Title,
             FoundLocation = dto.FoundLocation,
-            Category = "Box",
+            Category = dto.Category,
             Status = Status.Available,
             FoundAtUtc = DateTime.UtcNow.ToString(),
         };

@@ -10,4 +10,5 @@ public class CreateItemDto
 
     [Required]
     public string? FoundLocation { get; set; }
+    public string? Category { get; set; }
 }
