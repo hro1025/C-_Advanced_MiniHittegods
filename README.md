@@ -1,15 +1,14 @@
-# MiniHittegods API
-
-MiniHittegods er et REST API for registrering og håndtering av hittegods.
-
-Prosjektet er laget i **ASP.NET Core** og bruker **PostgreSQL** som database.
-Systemet kan startes med **Docker Compose** og inneholder automatiske tester.
-
----
-
 # Starte prosjektet
 
-Start hele systemet med Docker:
+Docker-konfigurasjonen ligger i mappen **MiniHittegods.Docker**.
+
+Gå først inn i denne mappen:
+
+```
+cd MiniHittegods.Docker
+```
+
+Start deretter systemet med Docker Compose:
 
 ```
 docker compose up --build
@@ -28,6 +27,7 @@ Når systemet kjører vil følgende tjenester være tilgjengelige:
 | API      | http://localhost:5000         |
 | Swagger  | http://localhost:5000/swagger |
 | Adminer  | http://localhost:8080         |
+
 
 ---
 
