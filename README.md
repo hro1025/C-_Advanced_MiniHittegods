@@ -88,30 +88,6 @@ dotnet test -V n
 ```
 ---
 
-# Eksempler på API bruk
-
-## Hent alle items
-
-```
-curl http://localhost:5000/api/items
-```
-
-## Hent ett item
-
-```
-curl http://localhost:5000/api/items/1/getitem
-```
-
-## Legg til item
-
-```
-curl -X POST http://localhost:5000/api/items \
--H "Content-Type: application/json" \
--d '{"name":"Wallet","description":"Black wallet"}'
-```
-
----
-
 # Teknologi
 
 Prosjektet bruker:
