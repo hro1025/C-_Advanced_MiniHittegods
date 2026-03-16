@@ -1,47 +1,48 @@
-# Starte prosjektet
+# MiniHittegods API
 
-Docker-konfigurasjonen ligger i mappen **MiniHittegods.Docker**.
+## Start the project
 
-Gå først inn i denne mappen:
+The Docker configuration is located in the **MiniHittegods.Docker** folder.
 
-```
+First navigate to this folder:
+
+```bash
 cd MiniHittegods.Docker
 ```
 
-Start deretter systemet med Docker Compose:
+Then start the system with Docker Compose:
 
-```
+```bash
 docker compose up --build
 ```
 
-Dette vil:
+This will:
 
-* starte PostgreSQL databasen
-* starte Adminer (database GUI)
-* bygge og starte APIet
+* start the PostgreSQL database
+* start Adminer (database GUI)
+* build and start the API
 
-Når systemet kjører vil følgende tjenester være tilgjengelige:
+When the system is running the following services will be available:
 
-| Tjeneste | URL                           |
-| -------- | ----------------------------- |
-| API      | http://localhost:5000         |
-| Swagger  | http://localhost:5000/swagger |
-| Adminer  | http://localhost:8080         |
-
+| Service | URL                           |
+| ------- | ----------------------------- |
+| API     | http://localhost:5000         |
+| Swagger | http://localhost:5000/swagger |
+| Adminer | http://localhost:8080         |
 
 ---
 
-# Database (Adminer)
+## Database (Adminer)
 
-Adminer kan brukes til å se databasen i nettleseren.
+Adminer can be used to view the database in a web browser.
 
-Åpne:
+Open:
 
 ```
 http://localhost:8080
 ```
 
-Login:
+Login with:
 
 ```
 System: PostgreSQL
@@ -53,47 +54,48 @@ Database: minihittegods
 
 ---
 
-# Swagger
+## Swagger
 
-Swagger brukes til å teste APIet.
+Swagger is used to test the API.
 
-Åpne:
+Open:
 
 ```
 http://localhost:5000/swagger
 ```
 
-Her kan du:
+Here you can:
 
-* se alle API endpoints
-* sende requests direkte fra nettleseren
-* teste API funksjonalitet
+* view all API endpoints
+* send requests directly from the browser
+* test the API functionality
 
 ---
 
-# Kjøre tester
+## Run tests
 
-Testene ligger i prosjektet **MiniHittegods.Tests**.
+The tests are located in the **MiniHittegods.Tests** project.
 
-Gå først inn i test-mappen:
+First navigate to the test folder:
 
-```
+```bash
 cd MiniHittegods.Tests
 ```
 
-Kjør deretter testene:
+Then run the tests:
 
-```
+```bash
 dotnet test -V n
 ```
+
 ---
 
-# Teknologi
+## Technology
 
-Prosjektet bruker:
+The project uses:
 
 * ASP.NET Core Web API
 * PostgreSQL
 * Docker Compose
 * Swagger
-* xUnit tester
+* xUnit tests
