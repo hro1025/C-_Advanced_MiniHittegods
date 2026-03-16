@@ -85,7 +85,7 @@ cd MiniHittegods.Tests
 Then run the tests:
 
 ```bash
-dotnet test -V n
+dotnet test -v n
 ```
 
 ---
