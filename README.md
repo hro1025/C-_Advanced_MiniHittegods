@@ -1,5 +1,15 @@
 # MiniHittegods API
 
+## Clone the project
+
+Clone the repository:
+
+git clone https://github.com/hro1025/C-_Advanced_MiniHittegods.git
+
+Navigate into the project folder:
+
+cd C-_Advanced_MiniHittegods
+---
 ## Start the project
 
 The Docker configuration is located in the **MiniHittegods.Docker** folder.
