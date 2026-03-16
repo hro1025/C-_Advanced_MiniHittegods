@@ -4,12 +4,18 @@
 
 Clone the repository:
 
+```bash
 git clone https://github.com/hro1025/C-_Advanced_MiniHittegods.git
+```
 
 Navigate into the project folder:
 
+```bash
 cd C-_Advanced_MiniHittegods
+```
+
 ---
+
 ## Start the project
 
 The Docker configuration is located in the **MiniHittegods.Docker** folder.
@@ -95,7 +101,7 @@ cd MiniHittegods.Tests
 Then run the tests:
 
 ```bash
-dotnet test -v n
+dotnet test -V n
 ```
 
 ---
