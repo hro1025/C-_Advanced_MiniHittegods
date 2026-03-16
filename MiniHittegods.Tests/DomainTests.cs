@@ -50,7 +50,7 @@ public class DomainTests
 
         var status = target.Status;
 
-        Assert.Equal(Status.Returned, status);
+        Assert.Equal(Status.Available, status);
     }
 
     [Fact]

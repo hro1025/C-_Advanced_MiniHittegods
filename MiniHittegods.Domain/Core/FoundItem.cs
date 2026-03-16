@@ -6,7 +6,6 @@ public enum Status
 {
     Available,
     Claimed,
-    Returned,
     Deleted,
 }
 
@@ -36,7 +35,7 @@ public class FoundItem
             throw new InvalidOperationException("Item can only be returned when claimed.");
         }
 
-        Status = Status.Returned;
+        Status = Status.Available;
     }
 
     public void RemoveItem()
