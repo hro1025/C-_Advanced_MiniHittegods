@@ -8,8 +8,9 @@ public interface IRepository<T>
     T GetById(int id);
     void Add(T item);
     void Update(T item);
-    void Remove(T item);
+
     void SaveChanges();
+    void Remove(T item);
 }
 
 public interface IEntity

@@ -11,11 +11,11 @@ using MiniHittegods.Domain.Services;
 namespace MiniHittegods.Api.Controller;
 
 [ApiController]
-public class Controller : ControllerBase
+public class ApiController : ControllerBase
 {
     private readonly FoundItemsService _service;
 
-    public Controller(FoundItemsService service)
+    public ApiController(FoundItemsService service)
     {
         _service = service;
     }
