@@ -73,14 +73,19 @@ Her kan du:
 
 # Kjøre tester
 
-Testene kjøres med:
+Testene ligger i prosjektet **MiniHittegods.Tests**.
+
+Gå først inn i test-mappen:
 
 ```
-dotnet test
+cd MiniHittegods.Tests
 ```
 
-Alle tester må være grønne for at prosjektet skal være godkjent.
+Kjør deretter testene:
 
+```
+dotnet test -V n
+```
 ---
 
 # Eksempler på API bruk
